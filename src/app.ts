@@ -53,6 +53,35 @@ export function main() {
     resourceName: "teacher",
     data: ["ken", "2", "taiwo"]
   }
+
+  //let's tackle Enums
+  enum ResourceType {
+    BOOK,
+    AUTHOR,
+    FILM,
+    DIRECTOR,
+    PERSON
+  }
+
+  interface Resources<T> {
+    uid: number
+    resourceType: ResourceType
+    data: T
+  }
+
+  const doc1: Resources<object> = {
+    uid: 1,
+    resourceType: ResourceType.BOOK,
+    data: { title: "name of the wind" }
+  }
+
+  const doc2: Resources<object> = {
+    uid: 10,
+    resourceType: ResourceType.PERSON,
+    data: { name: "yoshi" }
+  }
+
+  console.log(doc1.resourceType, doc2.resourceType)
 }
 
 main()
