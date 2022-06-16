@@ -17,11 +17,18 @@ export function main() {
   form.addEventListener("submit", (e: Event) => {
     e.preventDefault()
 
+    //specifying tuple for better readability
+    let values: [string, string, number] = [
+      toFrom.value,
+      details.value,
+      amount.valueAsNumber
+    ]
+
     let doc: HasFormatter
     if (type.value === "invoice") {
-      doc = new Invoice(toFrom.value, details.value, amount.valueAsNumber)
+      doc = new Invoice(...values)
     } else {
-      doc = new Payment(toFrom.value, details.value, amount.valueAsNumber)
+      doc = new Payment(...values)
     }
 
     list.render(doc, type.value, "end")
@@ -81,7 +88,12 @@ export function main() {
     data: { name: "yoshi" }
   }
 
-  console.log(doc1.resourceType, doc2.resourceType)
+  //experiment with Tuples
+
+  let arr = ["ryu", 2, true]
+
+  //array item order is fixed in place
+  let tup: [string, number, boolean] = ["ryu", 25, false]
 }
 
 main()

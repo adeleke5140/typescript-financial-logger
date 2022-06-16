@@ -11,12 +11,18 @@ export function main() {
     const list = new ListTemplate(ul);
     form.addEventListener("submit", (e) => {
         e.preventDefault();
+        //specifying tuple for better readability
+        let values = [
+            toFrom.value,
+            details.value,
+            amount.valueAsNumber
+        ];
         let doc;
         if (type.value === "invoice") {
-            doc = new Invoice(toFrom.value, details.value, amount.valueAsNumber);
+            doc = new Invoice(...values);
         }
         else {
-            doc = new Payment(toFrom.value, details.value, amount.valueAsNumber);
+            doc = new Payment(...values);
         }
         list.render(doc, type.value, "end");
     });
@@ -56,6 +62,9 @@ export function main() {
         resourceType: ResourceType.PERSON,
         data: { name: "yoshi" }
     };
-    console.log(doc1.resourceType, doc2.resourceType);
+    //experiment with Tuples
+    let arr = ["ryu", 2, true];
+    //array item order is fixed in place
+    let tup = ["ryu", 25, false];
 }
 main();
