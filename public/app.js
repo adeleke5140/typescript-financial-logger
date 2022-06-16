@@ -46,11 +46,11 @@ export function main() {
     //let's tackle Enums
     let ResourceType;
     (function (ResourceType) {
-        ResourceType[ResourceType["BOOK"] = 0] = "BOOK";
-        ResourceType[ResourceType["AUTHOR"] = 1] = "AUTHOR";
-        ResourceType[ResourceType["FILM"] = 2] = "FILM";
-        ResourceType[ResourceType["DIRECTOR"] = 3] = "DIRECTOR";
-        ResourceType[ResourceType["PERSON"] = 4] = "PERSON";
+        ResourceType["BOOK"] = "BOOK";
+        ResourceType["AUTHOR"] = "AUTHOR";
+        ResourceType["FILM"] = "FILM";
+        ResourceType["DIRECTOR"] = "DIRECTOR";
+        ResourceType["PERSON"] = "PERSON";
     })(ResourceType || (ResourceType = {}));
     const doc1 = {
         uid: 1,

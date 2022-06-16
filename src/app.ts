@@ -49,7 +49,7 @@ export function main() {
     data: T
   }
 
-  const docThree: Resource<object> = {
+  const docThree: Resource<{ name: string }> = {
     uid: 1,
     resourceName: "person",
     data: { name: "shaun" }
@@ -63,11 +63,11 @@ export function main() {
 
   //let's tackle Enums
   enum ResourceType {
-    BOOK,
-    AUTHOR,
-    FILM,
-    DIRECTOR,
-    PERSON
+    BOOK = "BOOK",
+    AUTHOR = "AUTHOR",
+    FILM = "FILM",
+    DIRECTOR = "DIRECTOR",
+    PERSON = "PERSON"
   }
 
   interface Resources<T> {
